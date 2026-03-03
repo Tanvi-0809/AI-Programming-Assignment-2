@@ -1,184 +1,208 @@
-
-AI-Programming-Assignment-2
-
-Artificial Intelligence Programming Assignment 2 implementing Turing Test simulation, CAPTCHA system, AQI Simple Reflex Agent, and Uninformed Search (BFS & DFS) algorithms.
-
-
-AI Programming Assignment
+AI Programming Assignment 2
 
 Name: Tanvi Gajula
-
 Roll Number: SE24UCSE025
-
 Course: Artificial Intelligence
 
+⸻
 
-OVERVIEW
+Introduction
 
-This repository contains implementations of fundamental Artificial Intelligence concepts including:
+This repository contains the implementation of core Artificial Intelligence concepts as part of Programming Assignment 2. The assignment focuses on Intelligent Agents, Human–Machine differentiation, Simple Reflex Agents, and Uninformed Search strategies. All programs are implemented using Python 3 without any external libraries.
 
-• Turing Test Simulation
-• CAPTCHA System
-• AQI Simple Reflex Agent
-• Missionaries and Cannibals Problem using BFS and DFS
+The project is structured into three main problem areas:
+	1.	Turing Test and CAPTCHA System
+	2.	AQI Simple Reflex Agent
+	3.	Uninformed Search using Missionaries and Cannibals Problem
 
-All programs are implemented in Python 3 using only standard libraries without external dependencies.
+Each section demonstrates practical application of theoretical AI concepts studied in class.
 
+⸻
 
+1️⃣ Turing Test and CAPTCHA System
 
+Turing Test Simulation
 
-1️⃣  Turing Test (turingtest.py)
+Objective
 
-Objective:
-To simulate the Turing Test, where a judge attempts to distinguish between a human and a machine based on their responses.
+To simulate the Turing Test, where a judge evaluates responses from a human and a machine to determine whether the machine exhibits intelligent behavior similar to a human.
 
-Concept:
-The Turing Test evaluates whether a machine can imitate intelligent human behavior convincingly.
+Description
 
-Components:
+The program generates two types of responses:
+	•	Human-like responses that resemble natural conversational language
+	•	Machine-like responses that appear structured and robotic
 
-• Machine – Generates robotic-style responses
-• Human – Generates natural conversational responses
-• Judge – Assigns suspicion score based on keywords
+A heuristic judge analyzes the responses using keyword-based scoring. If the suspicion score exceeds a defined threshold, the response is classified as BOT; otherwise, it is classified as HUMAN.
 
-If suspicion score ≥ 40%, the response is classified as BOT, otherwise HUMAN.
+This simulation demonstrates the concept proposed by Alan Turing, where intelligence is judged based on behavior rather than internal processing.
 
-How to Run:
+Concepts Demonstrated
+	•	Human vs Machine differentiation
+	•	Heuristic evaluation
+	•	Basic Natural Language imitation
+	•	Intelligent Agent behavior
 
-cd Turing_Captcha
+How to Run
+
+Navigate to the Turing_Captcha folder and run:
+
 python3 turingtest.py
 
 ⸻
 
-2️⃣ CAPTCHA System (captcha.py)
+CAPTCHA System
 
-Objective:
-To design a security mechanism that allows human users to pass while blocking automated bots.
+Objective
 
-CAPTCHA Types Implemented:
+To design a simple security mechanism that differentiates between human users and automated bots.
 
-Math – Example: What is 12 + 8?
-Logic – Example: What comes after Tuesday?
-Text – Example: Enter code: ABX9P
+Description
 
-Architecture:
+The CAPTCHA program randomly generates one of the following challenges:
+	•	Math-based challenge (Arithmetic reasoning)
+	•	Logic-based question (Common knowledge reasoning)
+	•	Text/code verification (Character recognition)
 
-User → Challenge Generated → User Response → Verification → Access Granted / Blocked
+The user must correctly answer the challenge. If the response is correct, access is granted; otherwise, access is blocked.
 
-How to Run:
+Architecture
 
-cd Turing_Captcha
+User → Challenge Generation → User Response → Verification → Access Decision
+
+Concepts Demonstrated
+	•	Security validation mechanisms
+	•	Human cognitive ability testing
+	•	Automated bot prevention logic
+	•	Simple rule-based verification
+
+How to Run
+
+Navigate to the Turing_Captcha folder and run:
+
 python3 captcha.py
 
 ⸻
 
-3️⃣ AQI Simple Reflex Agent (aqi_reflex_agent.py)
+2️⃣ AQI Simple Reflex Agent
 
-Objective:
-To implement a Simple Reflex Agent that reads environmental sensor data and produces actions using condition-action rules.
+Objective
+
+To implement a Simple Reflex Agent that reads environmental sensor data and performs actions based on predefined condition-action rules.
+
+Description
+
+This agent reads a PM2.5 value from a file named sensor_data.txt. Based on the pollution level, the agent determines the Air Quality Index (AQI) category and outputs an appropriate health advisory.
+
+The agent does not maintain internal memory or history. It simply reacts to the current percept, which makes it a Simple Reflex Agent.
 
 Agent Architecture
 
 Sensor → Percept → Condition-Action Rules → Actuator Output
+	•	Sensor: Reads PM2.5 value
+	•	Percept: Pollution measurement
+	•	Agent Function: Maps pollution level to AQI category
+	•	Actuator: Displays advisory message
 
-Working:
+AQI Categories Implemented
+	•	Good
+	•	Moderate
+	•	Unhealthy for Sensitive Groups
+	•	Unhealthy
+	•	Very Unhealthy
+	•	Hazardous
 
-• Reads PM2.5 value from sensor_data.txt
-• Determines AQI category
-• Displays appropriate health advisory
+Concepts Demonstrated
+	•	Intelligent Agent Architecture
+	•	Simple Reflex Agent model
+	•	Condition–Action rules
+	•	Real-world AI application
 
-AQI Categories:
+How to Run
 
-Good
-Moderate
-Unhealthy for Sensitive Groups
-Unhealthy
-Very Unhealthy
-Hazardous
+Navigate to the AQI_Agent folder and run:
 
-How to Run:
-
-cd AQI_Agent
 python3 aqi_reflex_agent.py
 
+⸻
 
+3️⃣ Uninformed Search – Missionaries and Cannibals Problem
 
-4️⃣ Uninformed Search – Missionaries and Cannibals
+Objective
 
-Objective:
-To implement uninformed search strategies (BFS and DFS) to solve a classical state space problem.
+To implement Uninformed Search algorithms (Breadth First Search and Depth First Search) to solve a classical state-space problem.
 
 Problem Description
 
-Three missionaries and three cannibals must cross a river using a boat of capacity 2.
+Three missionaries and three cannibals must cross a river using a boat that can carry at most two people.
 
-Constraints:
+Constraints
+	•	The boat capacity is two persons.
+	•	Cannibals must never outnumber missionaries on either bank if missionaries are present.
 
-• The boat can carry at most two people.
-• Cannibals must never outnumber missionaries on either bank (if missionaries are present).
+The goal is to safely move all missionaries and cannibals from the left bank to the right bank.
 
-State Representation:
+State Representation
 
-State = (Missionaries_left, Cannibals_left, Boat_position)
+Each state is represented as:
 
-Example: (3, 3, 0)
-Where 0 represents boat on left bank and 1 represents boat on right bank.
+(Missionaries_left, Cannibals_left, Boat_position)
 
-Algorithms Implemented:
-	1.	Breadth First Search (BFS)
-• Explores level by level
-• Uses Queue (FIFO)
-• Complete and optimal
-• Higher memory usage
-	2.	Depth First Search (DFS)
-• Explores deepest node first
-• Uses Stack (LIFO)
-• Lower memory usage
-• Not always optimal
+Where:
+	•	Missionaries_left = number of missionaries on left bank
+	•	Cannibals_left = number of cannibals on left bank
+	•	Boat_position = 0 (left bank) or 1 (right bank)
 
-Performance Metrics Measured:
+Example: (3, 3, 0) represents the initial state.
 
-• Nodes Expanded
-• Maximum Frontier Size
-• Execution Time
+Algorithms Implemented
 
-How to Run:
+Breadth First Search (BFS)
+	•	Explores the search space level by level
+	•	Uses a Queue (FIFO structure)
+	•	Complete and optimal
+	•	Higher memory consumption
 
-cd Search_Algorithms
+Depth First Search (DFS)
+	•	Explores deepest nodes first
+	•	Uses a Stack (LIFO structure)
+	•	Lower memory usage
+	•	Not guaranteed to find optimal solution
+
+Performance Metrics Measured
+	•	Number of nodes expanded
+	•	Maximum frontier size
+	•	Execution time
+
+Concepts Demonstrated
+	•	State space formulation
+	•	Problem representation
+	•	Graph search
+	•	Uninformed search strategies
+	•	Performance comparison between BFS and DFS
+
+How to Run
+
+Navigate to the Search_Algorithms folder and run:
+
 python3 run_compare.py
 
+⸻
 
+Requirements
+	•	Python 3
+	•	No external libraries required
 
-Performance Comparison:
+⸻
 
-BFS:
-Time Complexity: O(b^d)
-Space Complexity: O(b^d)
+Conclusion
 
-DFS:
-Time Complexity: O(b^d)
-Space Complexity: O(d)
+This assignment demonstrates fundamental Artificial Intelligence concepts through practical implementation:
+	•	Human-machine differentiation using the Turing Test
+	•	Security validation through CAPTCHA
+	•	Design and implementation of a Simple Reflex Agent
+	•	State-space problem solving using Uninformed Search (BFS and DFS)
 
-Where
-b = branching factor
-d = depth of solution
+The project follows modular design principles and clearly reflects theoretical AI concepts through executable Python programs.
 
-
-
-Requirements:
-
-Python 3
-No external libraries required
-
-
-Conclusion:
-
-This assignment demonstrates:
-
-• Human vs Machine differentiation using the Turing Test
-• Security validation mechanism using CAPTCHA
-• Simple Reflex Agent design using environmental sensors
-• State space formulation and problem solving using Uninformed Search
-• Practical implementation of BFS and DFS algorithms
-
-All implementations follow modular design and standard AI problem-solving principles.
+⸻

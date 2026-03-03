@@ -7,7 +7,9 @@ Artificial Intelligence Programming Assignment 2 implementing Turing Test simula
 AI Programming Assignment
 
 Name: Tanvi Gajula
+
 Roll Number: SE24UCSE025
+
 Course: Artificial Intelligence
 
 
